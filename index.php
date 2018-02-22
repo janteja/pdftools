@@ -22,7 +22,6 @@ text-decoration: none;
         text-shadow: 0 0 1px rgba(255,255,255,0.3);
         font-size: 1.1em;
 }
-
 </style>
 </head>
  
@@ -34,7 +33,8 @@ text-decoration: none;
 
 <ul>
     <li>  <a href="merge.php" datahover="Merge">Merge</a> </li>
-        <li>  <a href="selection.php" datahover="Remove Pages">Remove Pages</a> </li>
+        <li>  <a href="selection.php" id="remove"datahover="Remove Pages">Remove Pages</a> </li>
+	<li> <a href="compress.php" id="compress" datahover="Compress">Compress</a> </li>
 </ul>
                               </nav>
 
