@@ -23,10 +23,11 @@ RUN make
 RUN make install
 RUN wget -O php.tar.gz http://us3.php.net/get/php-7.1.4.tar.bz2/from/this/mirror
 RUN tar xfv php.tar.gz
-RUN php-7.1.4/configure --with-apxs2=/usr/local/apache/bin/apxs
+RUN yum -y install openssl-devel
+RUN php-7.1.4/configure --with-apxs2=/usr/local/apache/bin/apxs --enable-mbstring --with-openssl 
 RUN make
 RUN make install
-RUN echo -e "<IfModule mime_module> \n AddType text/html .php .phps \n</IfModule> \n<IfModule dir_module> \nDirectoryIndex index.html index.php \n</IfModule> \nAddType  application/x-httpd-php        .php \nAddType  application/x-httpd-php-source  .phps" >> /usr/local/apache/conf/httpd.conf
+RUN echo -e "<IfModule mime_module> \n AddType text/html .php .phps \n</IfModule> \n<IfModule dir_module> \nDirectoryIndex index.html index.php \n</IfModule> \nAddType  application/x-httpd-php        .php \nAddType  application/x-httpd-php-source  .phps \n <Directory "/usr/local/apache/htdocs"> \n    Options -Indexes \n        AllowOverride None \n    Require all granted \n </Directory> " >> /usr/local/apache/conf/httpd.conf
 RUN git clone 'https://github.com/jteja/pdftools.git' 
 RUN mv pdftools/* /usr/local/apache/htdocs/
 RUN rm -rf pdftools
