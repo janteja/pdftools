@@ -10,15 +10,15 @@ RUN yum groupinstall -y 'Development Tools'
 RUN yum -y localinstall 'https://www.linuxglobal.com/static/blog/pdftk-2.02-1.el7.x86_64.rpm'
 RUN yum -y install libxml2-devel
 RUN yum install -y expat-devel
-RUN wget 'http://apache.mirror.vexxhost.com//httpd/httpd-2.4.29.tar.gz'
-RUN tar xfv httpd-2.4.29.tar.gz
-RUN wget http://apache.forsale.plus//apr/apr-1.6.3.tar.gz
+RUN wget 'http://apache.mirror.vexxhost.com/httpd/httpd-2.4.41.tar.gz'
+RUN tar xfv httpd-2.*.tar.gz
+RUN wget http://apache.forsale.plus//apr/apr-1.7.0.tar.gz
 RUN wget http://apache.forsale.plus//apr/apr-util-1.6.1.tar.gz
+RUN tar xfv apr-1.7.0.tar.gz
 RUN tar xfv apr-util-1.6.1.tar.gz
-RUN tar xfv apr-1.6.3.tar.gz
-RUN mv apr-1.6.3 httpd-2.4.29/srclib/apr
-RUN mv apr-util-1.6.1 httpd-2.4.29/srclib/apr-util
-RUN httpd-2.4.29/configure  --with-included-apr --prefix=/usr/local/apache
+RUN mv apr-1.7.0 httpd-2.4.41/srclib/apr
+RUN mv apr-util-1.6.1 httpd-2.4.41/srclib/apr-util
+RUN httpd-2.4.41/configure  --with-included-apr --prefix=/usr/local/apache
 RUN make
 RUN make install
 RUN wget -O php.tar.gz http://us3.php.net/get/php-7.1.4.tar.bz2/from/this/mirror
