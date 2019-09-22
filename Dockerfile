@@ -38,6 +38,7 @@ RUN rm -rf http*
 RUN rm -rf apr*
 RUN cp /php-*/php.ini-production /usr/local/lib/php.ini
 RUN yum install -y ImageMagick*
+RUN yum install -y ghostscript
 RUN printf "\n" | pecl install imagick
 RUN echo "extension=imagick.so" >> /usr/local/lib/php.ini
 CMD ["/usr/local/apache/bin/apachectl","-D","FOREGROUND"]
