@@ -7,18 +7,20 @@ pdftools allows you to create a server based tool that allows you to compress,me
 
 
 
-- You need to Install Docker to install this.
+- Requires Docker.
 
 # How to install docker on CentOS:
 
     # Add Repo
-sudo yum-config-manager \
+    sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
+    
     # Install Docker
-sudo yum install docker-ce docker-ce-cli containerd.io
+    sudo yum install docker-ce docker-ce-cli containerd.io
+    
     # Enable Docker
-sudo systemctl start docker
+    sudo systemctl start docker
 
 
 
