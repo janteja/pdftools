@@ -9,7 +9,7 @@ pdftools allows you to create a server based tool that allows you to compress,me
 
 - Requires Docker.
 
-# How to install docker on CentOS:
+# How to install docker on RHEL/CentOS:
 
     # Add Repo
     sudo yum-config-manager \
@@ -26,10 +26,8 @@ pdftools allows you to create a server based tool that allows you to compress,me
 
 # Installation
 
-git clone https://github.com/jteja/pdftools.git
-
-cd pdftools
-
-docker build -t pdf_tools .
-
-docker run -p 80:80 --name pdf_tools pdf_tools:latest
+    git clone https://github.com/jteja/pdftools.git
+    cd pdftools
+    docker build -t pdf_tools .
+    # Start
+    docker run -p 80:80 --name pdf_tools pdf_tools:latest
